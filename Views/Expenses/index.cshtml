@@ -1,0 +1,45 @@
+@model IEnumerable<ExpenseDto>
+@{
+    ViewData["Title"] = "Listado de Gastos";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Nuevo Gasto</a>
+</p>
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Monto</th>
+            <th>Categoría</th>
+            <th>Fecha</th>
+            <th>Notas</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Amount.ToString("C2")</td>
+                <td>@item.Category</td>
+                <td>@item.Date.ToShortDateString()</td>
+                <td>@item.Notes</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
