@@ -5,5 +5,4 @@ public interface IExpenseService
     Task CreateAsync(CreateExpenseDto dto);
     Task UpdateAsync(UpdateExpenseDto dto);
     Task DeleteAsync(int id);
-    Task<decimal> GetTotalByMonthAsync(int year, int month);
 }

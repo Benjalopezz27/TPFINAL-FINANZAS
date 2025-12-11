@@ -1,6 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using ProyectoFinal.Models;
-using AutoMapper;
 
 public class ExpensesController : Controller
 {
@@ -13,14 +11,14 @@ public class ExpensesController : Controller
         _service = service;
     }
 
-
+    //Listar todos los gastos
     public async Task<IActionResult> Index()
     {
         var list = await _service.GetAllAsync();
         return View(list);
     }
 
-
+    //Ver detalle de un gasto
     public async Task<IActionResult> Details(int id)
     {
         var item = await _service.GetByIdAsync(id);
@@ -36,6 +34,8 @@ public class ExpensesController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+
+    //Crear nuevo gasto
     public async Task<IActionResult> Create(CreateExpenseDto dto)
     {
         if (!ModelState.IsValid) return View(dto);
@@ -63,6 +63,7 @@ public class ExpensesController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    //Editar gasto existente
     public async Task<IActionResult> Edit(UpdateExpenseDto dto)
     {
         if (!ModelState.IsValid) return View(dto);
@@ -81,6 +82,7 @@ public class ExpensesController : Controller
 
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
+    //Eliminar gasto
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
         await _service.DeleteAsync(id);

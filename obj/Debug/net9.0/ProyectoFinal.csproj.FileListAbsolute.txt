@@ -230,3 +230,4 @@ C:\Users\benja\OneDrive\Documentos\.vscode\Desarrollo Back-End\ProyectoFinal\obj
 C:\Users\benja\OneDrive\Documentos\.vscode\Desarrollo Back-End\ProyectoFinal\obj\Debug\net9.0\ProyectoFinal.pdb
 C:\Users\benja\OneDrive\Documentos\.vscode\Desarrollo Back-End\ProyectoFinal\obj\Debug\net9.0\ProyectoFinal.genruntimeconfig.cache
 C:\Users\benja\OneDrive\Documentos\.vscode\Desarrollo Back-End\ProyectoFinal\obj\Debug\net9.0\ref\ProyectoFinal.dll
+C:\Users\benja\OneDrive\Documentos\.vscode\Desarrollo Back-End\ProyectoFinal\obj\Debug\net9.0\ProyectoFinal.sourcelink.json

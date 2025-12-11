@@ -1,5 +1,4 @@
 using AutoMapper;
-using ProyectoFinal.Models;
 
 public class MappingProfile : Profile
 {

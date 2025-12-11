@@ -12,14 +12,14 @@ public class ExpenseService : IExpenseService
         _mapper = mapper;
     }
 
-
+    //Crear nuevo gasto
     public async Task CreateAsync(CreateExpenseDto dto)
     {
         var entity = _mapper.Map<Expense>(dto);
         await _repo.AddAsync(entity);
     }
 
-
+    //Eliminar gasto
     public async Task DeleteAsync(int id)
     {
         var entity = await _repo.GetByIdAsync(id);
@@ -27,30 +27,25 @@ public class ExpenseService : IExpenseService
         await _repo.DeleteAsync(entity);
     }
 
-
+    //Obtener todos los gastos
     public async Task<IEnumerable<ExpenseDto>> GetAllAsync()
     {
         var all = await _repo.GetAllAsync();
         return _mapper.Map<IEnumerable<ExpenseDto>>(all);
     }
 
-
+    //Obtener gasto por Id
     public async Task<ExpenseDto?> GetByIdAsync(int id)
     {
         var e = await _repo.GetByIdAsync(id);
         return e is null ? null : _mapper.Map<ExpenseDto>(e);
     }
 
-
+    //Editar gasto existente
     public async Task UpdateAsync(UpdateExpenseDto dto)
     {
         var entity = _mapper.Map<Expense>(dto);
         await _repo.UpdateAsync(entity);
     }
 
-
-    public async Task<decimal> GetTotalByMonthAsync(int year, int month)
-    {
-        return await _repo.GetTotalByMonthAsync(year, month);
-    }
 }
